@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first/auth/authentication.dart';
-import 'package:regexed_validator/regexed_validator.dart'; // Добавим библиотеку для проверки регулярного выражения
 
+/// Displays a list of SampleItems.
 class AuthView extends StatefulWidget {
-  const AuthView({Key? key}) : super(key: key);
+  const AuthView({super.key});
 
   static const routeName = '/auth';
 
@@ -115,9 +115,6 @@ class _AuthViewState extends State<AuthView> {
                       if (value == null || value.isEmpty) {
                         return 'Введите логин';
                       }
-                      if (!validator.email(value)) { // Проверка почты по регулярному выражению
-                        return 'Введите действительный адрес электронной почты';
-                      }
                       return null;
                     },
                     controller: loginController,
@@ -130,9 +127,6 @@ class _AuthViewState extends State<AuthView> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Введите пароль';
-                        }
-                        if (value.length < 6) { // Проверка длины пароля
-                          return 'Пароль должен содержать не менее 6 символов';
                         }
                         return null;
                       },
