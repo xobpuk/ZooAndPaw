@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first/auth/authentication.dart';
-import 'package:regexed_validator/regexed_validator.dart'; // Добавим библиотеку для проверки регулярного выражения
+import 'package:regexed_validator/regexed_validator.dart'; 
 
 class AuthView extends StatefulWidget {
   const AuthView({Key? key}) : super(key: key);
@@ -115,7 +115,7 @@ class _AuthViewState extends State<AuthView> {
                       if (value == null || value.isEmpty) {
                         return 'Введите логин';
                       }
-                      if (!validator.email(value)) { // Проверка почты по регулярному выражению
+                      if (!validator.email(value)) { 
                         return 'Введите действительный адрес электронной почты';
                       }
                       return null;
@@ -131,7 +131,7 @@ class _AuthViewState extends State<AuthView> {
                         if (value == null || value.isEmpty) {
                           return 'Введите пароль';
                         }
-                        if (value.length < 6) { // Проверка длины пароля
+                        if (value.length < 6) {
                           return 'Пароль должен содержать не менее 6 символов';
                         }
                         return null;
